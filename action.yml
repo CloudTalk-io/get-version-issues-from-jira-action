@@ -1,0 +1,21 @@
+name: 'Get version issues from Jira'
+description: "Lists all issues assigned to version in JIRA and returns them in Slack's Block Kit format as a URL list"
+inputs:
+  jira-api-token:
+    description: 'Jira API Token - https://developer.atlassian.com/cloud/jira/platform/basic-auth-for-rest-apis/'
+    required: true
+  project:
+    description: 'Jira Project Name under CloudTalk'
+    required: true
+  version:
+    description: 'Version to list issues from'
+    required: true
+  version-key:
+    description: 'Version key in Jira, default is fixVersion'
+    default: 'fixVersion'
+outputs:
+  issues:
+    description: 'Issues assigned to given version'
+runs:
+  using: 'node16'
+  main: 'dist/index.js'

@@ -9938,12 +9938,13 @@ const core = __nccwpck_require__(3234);
 
 try {
     const jiraToken = core.getInput('jira-api-token');
+    const jiraCompanyUrl = core.getInput('jira-company-url');
     const project = core.getInput('project');
     const versionKey = core.getInput('version-key');
     const version = core.getInput('version');
 
     fetch(
-        `https://cloudtalk.atlassian.net/rest/api/3/search?jql=project = ${project} AND ${versionKey} = "${version}" order by created DESC&fields=summary`,
+        `${jiraCompanyUrl}/rest/api/3/search?jql=project = ${project} AND ${versionKey} = "${version}" order by created DESC&fields=summary`,
         {
             method: 'GET',
             headers: {
@@ -9958,7 +9959,7 @@ try {
 
             const issueList = response.issues.map(
                 (issue) =>
-                    `- <https://cloudtalk.atlassian.net/browse/${issue.key}|${issue.key}> - ${issue.fields.summary}`
+                    `- <${jiraCompanyUrl}/browse/${issue.key}|${issue.key}> - ${issue.fields.summary}`
             );
             core.setOutput("issues", issueList.join('\\n'));
         })

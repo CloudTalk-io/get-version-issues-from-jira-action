@@ -1,7 +1,7 @@
 # Get version issues from Jira action
 
-This action makes a GET request to CloudTalk's Jira Cloud API, lists all issues assigned to version and returns them
-in Slack's Block Kit format as a URL list.
+This action makes a GET request to your company's Jira REST API, lists all issues assigned to version and returns them
+in Slack's unordered list with format `PROJ-XYZ - Description`.
 
 ## Inputs
 
@@ -10,9 +10,13 @@ in Slack's Block Kit format as a URL list.
 **Required** Jira API Token, encoded in Base 64 together with user. Read
 more [here](https://developer.atlassian.com/cloud/jira/platform/basic-auth-for-rest-apis/).
 
+### `jira-company-url`
+
+**Required** Your company's Jira URL.
+
 ### `project`
 
-**Required** Jira project name under CloudTalk company.
+**Required** Jira project name under your company.
 
 ### `version`
 
@@ -35,8 +39,8 @@ Issues assigned to given version.
   id: release-issues
   with:
     jira-api-token: '<your-api-token>'
-    project: 'MAP'
-    version: '4.3.1 (130)'
+    project: 'PROJ'
+    version: 'X.Y.Z'
 
 # Use the output from 'release-issues' step
 - run: echo "${{ steps.release-issues.outputs.issues }}"

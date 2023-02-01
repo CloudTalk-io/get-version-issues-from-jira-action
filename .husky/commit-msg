@@ -1,0 +1,23 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+message="$(cat "$1")"
+requiredPattern="^(build|chore|ci|docs|feat|fix|perf|refactor|revert|style|test)\(([A-Z][A-Z0-9_]+-[1-9][0-9]*|TRIVIAL)\):[[:space:]](.{5,100})$"
+if ! [[ "$message" =~ $requiredPattern ]];
+then
+  echo "-"
+  echo "🚨 Wrong commit message! 😕"
+  echo "The commit message must have this format:"
+  echo "<type>(<scope>): <subject>"
+  echo "Allowed type: build, chore, ci, docs, feat, fix, perf, refactor, revert, style, test"
+  echo "Allowed scope: AAA-XXX, TRIVIAL"
+  echo "Allowed subject: any sentence between 5 to 100 characters"
+  echo "Example: feat(PROJ-123): what has been done"
+  echo "-"
+  echo "Your commit message was:"
+  echo "$message"
+  echo "-"
+  echo "For more information, check script in .husky/commit-msg"
+  echo "-"
+  exit 1
+fi

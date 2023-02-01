@@ -4,8 +4,11 @@ inputs:
   jira-api-token:
     description: 'Jira API Token - https://developer.atlassian.com/cloud/jira/platform/basic-auth-for-rest-apis/'
     required: true
+  jira-company-url:
+    description: "Your company's Jira URL"
+    required: true
   project:
-    description: 'Jira Project Name under CloudTalk'
+    description: 'Jira project name under your company'
     required: true
   version:
     description: 'Version to list issues from'

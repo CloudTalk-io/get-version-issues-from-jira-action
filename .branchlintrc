@@ -1,0 +1,8 @@
+{
+  "branchNameLinter": {
+    "disallowed": [],
+    "skip": [
+      "main"
+    ]
+  }
+}

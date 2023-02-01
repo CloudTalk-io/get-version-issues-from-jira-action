@@ -22,6 +22,11 @@ try {
         .then((body) => {
             const response = JSON.parse(body);
 
+            if (response.errorMessages && response.errorMessages.length > 0) {
+                core.setFailed(response.errorMessages.join('\n'));
+                return;
+            }
+
             const issueList = response.issues.map(
                 (issue) =>
                     `- <${jiraCompanyUrl}/browse/${issue.key}|${issue.key}> - ${issue.fields.summary}`

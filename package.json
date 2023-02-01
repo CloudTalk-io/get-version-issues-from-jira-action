@@ -1,6 +1,6 @@
 {
   "name": "get-version-issues-from-jira-action",
-  "version": "1.1",
+  "version": "1.2",
   "description": "Lists all issues assigned to version in JIRA and returns them in Slack's Block Kit format as a URL list",
   "main": "index.js",
   "repository": "git@github.com:CloudTalk-io/get-version-issues-from-jira-action.git",
@@ -8,7 +8,7 @@
   "license": "MIT",
   "dependencies": {
     "@actions/core": "^1.10.0",
-    "node-fetch": "^3.3.0"
+    "node-fetch": "v2"
   },
   "scripts": {
     "build": "ncc build index.js --license licenses.txt",

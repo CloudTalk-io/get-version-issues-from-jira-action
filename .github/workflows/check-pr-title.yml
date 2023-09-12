@@ -19,3 +19,7 @@ jobs:
 
       - name: Check PR Title
         uses: CloudTalk-io/action-check-pr-title@main
+        with:
+          jiraUrl: ${{ vars.JIRA_URL }}
+          jiraUsername: ${{ secrets.JIRA_USERNAME }}
+          jiraToken: ${{ secrets.JIRA_TOKEN }}

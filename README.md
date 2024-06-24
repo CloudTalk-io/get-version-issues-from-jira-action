@@ -67,7 +67,8 @@ Don't forget to create tag with version to publish your latest release:
 git tag -a -m "<release description>" vX.Y
 git push --follow-tags
 ```
-\n## Stale PRs
+
+## Stale PRs
 
 Stale pull requests (PRs) are those that have not had any activity for a certain period of time. It's important to manage stale PRs to keep the project's pull requests manageable and to ensure that contributions are either moving forward or being closed if they are no longer relevant.
 
